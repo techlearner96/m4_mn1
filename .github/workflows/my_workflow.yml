@@ -57,8 +57,7 @@ jobs:
       run: pip install pylint black
     - name: Linting code with pylint
       run: |
-        find . -path "./bikeshare_model" -o -path "./bikeshare_model_api" -o -path "./tests" -o -name "*.py" \
-        -not -name "__init__.py" -exec pylint {} +
+        pylint *.py
     - name: Format code with Black
       run: |
         black .
