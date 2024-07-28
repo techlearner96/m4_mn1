@@ -53,6 +53,8 @@ jobs:
       with:
         name: my-trained-pipeline
         path: bikeshare_model/trained_models
+    - name: Install pylint & black dependencies
+      run: pip install pylint black
     - name: Linting code with pylint
       run: |
         pylint .
