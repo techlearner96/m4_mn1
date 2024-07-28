@@ -40,6 +40,13 @@ jobs:
     
     - name: Test with pytest
       run: pytest
+    - name: Formatting with black
+      run: |
+        black . ./bikeshare_model ./bikeshare_model_api ./tests
+    - name: Linting with pylint
+      run: |
+        find . -path "./bikeshare_model" -o -path "./bikeshare_model_api" -o -path "./tests" -o -name "*.py" \
+        -not -name "__init__.py" -exec pylint {} +
   build:
     needs: [train, test]
     runs-on: ubuntu-latest
@@ -53,15 +60,7 @@ jobs:
       with:
         name: my-trained-pipeline
         path: bikeshare_model/trained_models
-    - name: Install pylint & black dependencies
-      run: pip install pylint black
-    - name: Formatting with black
-      run: |
-        black . ./bikeshare_model ./bikeshare_model_api ./tests
-    - name: Linting with pylint
-      run: |
-        find . -path "./bikeshare_model" -o -path "./bikeshare_model_api" -o -path "./tests" -o -name "*.py" \
-        -not -name "__init__.py" -exec pylint {} +
+    
     - name: Install dependencies
       run: pip install --upgrade build
     - name: Build package
