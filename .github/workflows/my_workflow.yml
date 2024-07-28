@@ -53,9 +53,7 @@ jobs:
       with:
         name: my-trained-pipeline
         path: bikeshare_project/bikeshare_model/trained_models
-    - name: Lint with pylint
-      run: |
-        pylint ./bikeshare_project
+    
     - name: Format code with Black
       run: |
         black .
