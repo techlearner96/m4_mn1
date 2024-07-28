@@ -55,7 +55,7 @@ jobs:
         path: bikeshare_project/bikeshare_model/trained_models
     - name: Lint with pylint
       run: |
-        pylint .
+        pylint ./bikeshare_project
     - name: Format code with Black
       run: |
         black .
