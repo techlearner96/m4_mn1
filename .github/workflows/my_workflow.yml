@@ -53,7 +53,9 @@ jobs:
       with:
         name: my-trained-pipeline
         path: bikeshare_model/trained_models
-    
+    - name: Linting code with pylint
+      run: |
+        pylint .
     - name: Format code with Black
       run: |
         black .
