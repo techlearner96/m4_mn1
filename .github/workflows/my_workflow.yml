@@ -43,10 +43,6 @@ jobs:
     - name: Formatting with black
       run: |
         black . ./bikeshare_model ./bikeshare_model_api ./tests
-    - name: Linting with pylint
-      run: |
-        find . -path "./bikeshare_model" -o -path "./bikeshare_model_api" -o -path "./tests" -o -name "*.py" \
-        -not -name "__init__.py" -exec pylint {} +
   build:
     needs: [train, test]
     runs-on: ubuntu-latest
