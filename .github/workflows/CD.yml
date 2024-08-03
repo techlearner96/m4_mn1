@@ -1,9 +1,9 @@
-name: Push a Docker Image
+name: CD-Pipeline
 
 # Only trigger, when the build workflow succeeded i.e. CI Pipeline
 on:
   workflow_run:
-    workflows: ["Push a Docker Image"]
+    workflows: ["CI-Pipeline"]
     types:
       - completed
 
